@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<!--[if IE 9]>         <html class="ie9 no-focus" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-focus" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+
+  <title>Donar Dashboard</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0">
+  <!-- Bootstrap and OneUI CSS framework -->
+  <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" id="css-main" href="../../assets/css/oneui.min.css">
+</head>
+<body>
+<div>
+  <main id="main-container">
+    <!-- Page Header -->
+
+    <div class="content bg-gray-lighter">
+      <div class="row items-push">
+        <button class="btn success pull-left" >+Donate</button>
+        <h1 class="h1 font-w700 text-black animated fadeInDown fa-pull-left" style="margin-left: 35%">Donar</h1>
+        <ul class="nav-header pull-right">
+          <li ngbDropdown  class="nav-item dropdown">
+            <div class="btn-group">
+              <button type="button" ngbDropdownToggle class="btn btn-default btn-image dropdown-toggle" id="navbarDropdownButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img src="../../assets/img/avatars/avatar10.jpg" alt="Avatar">
+                <span class="caret"></span>
+              </button>
+              <div ngbDropdownMenu  class="dropdown-menu" aria-labelledby="navbarDropdownMenuButton">
+                <ul>
+                  <li class="dropdown-header">Profile</li>
+                  <li>
+                    <a tabindex="-1" href="base_pages_profile.html">
+                      <i class="si si-user pull-right"></i>
+                      <span class="badge badge-success pull-right">1</span>Profile
+                    </a>
+                  </li>
+                  <li>
+                    <a tabindex="-1" href="javascript:void(0)">
+                      <i class="si si-settings pull-right"></i>Settings
+                    </a>
+                  </li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Actions</li>
+                  <li>
+                    <a tabindex="-1" routerLink="/mainpage" routerLinkActive="active">
+                      <i class="si si-logout pull-right"></i>Log out
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+            </div>
+          </li>
+        </ul>
+        <button class="btn success pull-right" >+History</button>
+      </div>
+    </div><br>
+    <div id="main" class="content content-boxed" style="background-color: lightslategrey;">
+      <img src="../../assets/img/Donate.jpg" height="250" width="1200" style="margin-left: 1%; margin-bottom: 1%;" />
+    </div>
+
+  </main> <br>
+</div>
+
+<div class="card">
+<!--  <img src="jeans3.jpg" alt="Denim Jeans" style="width:100%">-->
+  <div id="row">
+    <div *ngFor="let item of temp" id="col" class="col-sm-3">
+      <h1 id="title" style="text-align: center;"> {{item.foodName}} </h1>
+      <p id="address"><label for="Address">Address:</label> {{item.foodAddress }} </p>
+      <p class="price" id="weight" ><label for="price">Weight:</label> {{item.foodWeight}} <label>Kg</label></p>
+      <p class="price" id="expdate" ><label for="price">Expiry Date:</label> {{item.foodExpiry}} </p>
+      <p class="price" id="price" ><label for="price">Price: $</label> {{item.foodPrice}} </p>
+      <p style="text-align: center;"><button type="button">Delete</button></p>
+    </div>
+  </div>
+</div>
+
+<div id="donarForm">
+  <form id="myForm" #foodData="ngForm">
+    <div class="imgcontainer">
+      <img src="../../assets/img/logo.jpg" alt="Avatar" class="avatar">
+    </div>
+
+    <div class="container">
+      <label><b>Food Name</b></label>&nbsp;
+      <input type="text" placeholder="Enter Food Item Name" name="foodname" [(ngModel)]="foodName" required><br>
+      <label><b>Address</b></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <input type="text" placeholder="Enter Address" name="address" [(ngModel)]="foodAddress" required><br>
+      <label><b>Expiry Date</b>&nbsp;&nbsp;</label><input type="date" value="2017-06-01" name="expdate" [(ngModel)]="foodExpiry">&nbsp;&nbsp;
+      <label>Weight</label>&nbsp;<input type="text" style="width: 20%" name="foodweight" [(ngModel)]="foodWeight">&nbsp;&nbsp;
+      <label>Price</label>&nbsp;<input type="text" style="width: 20%" name="foodprice" [(ngModel)]="foodPrice">
+      <input type="text" style="width: 20%; visibility: hidden" name="username" [(ngModel)]="username">
+      <input type="date" style="width: 20%; visibility: hidden" name="addeddate" [(ngModel)]="addeddate">
+<!--      <input type="text" style="width: 20%;" name="referenceID" [(ngModel)]="referenceID">-->
+    </div>
+
+    <div class="container" style="background-color:lightgrey">
+      <button  class="cancelbtn"  id= submit style="margin-left:5%">Submit</button>
+      <button  class="cancelbtn" style="margin-left:50%;" type="button" >Cancle</button>
+    </div>
+  </form>
+</div>
+<!-- OneUI Core JS: jQuery, Bootstrap, slimScroll, scrollLock, Appear, CountTo, Placeholder, Cookie and App.js -->
+<script src="donar.component.ts"></script>
+<script src="../../assets/js/oneui.min.js"></script>
+
+
+</body>
+</html>
