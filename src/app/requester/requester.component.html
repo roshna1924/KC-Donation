@@ -18,7 +18,7 @@
   <!-- Header -->
   <header id="header-navbar" class="content-mini content-mini-full">
     <!-- Header Navigation Right -->
-    <button class="btn success" style="background-color: lightsteelblue">+History</button>
+    <button class="btn success" (click)="goToHistory()" style="background-color: lightsteelblue">+History</button>
     <ul class="nav-header pull-right">
       <li ngbDropdown  class="nav-item dropdown">
         <div class="btn-group">
@@ -35,11 +35,11 @@
                   <span class="badge badge-success pull-right">1</span>Profile
                 </a>
               </li>
-              <li>
-                <a tabindex="-1" href="javascript:void(0)">
-                  <i class="si si-settings pull-right"></i>Settings
-                </a>
-              </li>
+<!--              <li>-->
+<!--                <a tabindex="-1" href="javascript:void(0)">-->
+<!--                  <i class="si si-settings pull-right"></i>Settings-->
+<!--                </a>-->
+<!--              </li>-->
               <li class="divider"></li>
               <li class="dropdown-header">Actions</li>
               <li>
@@ -78,9 +78,9 @@
       <p class="price" id="price" ><label for="price">Price: $</label> {{item.foodPrice}} </p>
       <input type="text" style="width: 20%; visibility: hidden" name="username" [(ngModel)]="username">
       <input type="date" style="width: 20%; visibility: hidden" name="addeddate" [(ngModel)]="updateddate">
-      <button class="btn btn-primary btn-sm" data-target="#loginModal" data-toggle="modal">Login</button>
-      <button>Open Modal 1</button>
-      <p style="text-align: center;"><button type="button">Request Item</button></p>
+<!--      <button class="btn btn-primary btn-sm" data-target="#loginModal" data-toggle="modal">Login</button>-->
+<!--      <button (click)="openModal('custom-modal-1')">Open Modal 1</button>-->
+      <p style="text-align: center;"><button type="button" (click)="deleteFood(item._id, item.foodWeight, username, updateddate)">Request Item</button></p>
     </div>
   </div>
 </div>
@@ -105,7 +105,7 @@
       <p>
         Home page text: <input type="text" [(ngModel)]="bodyText" />
       </p>
-      <button>Close</button>
+      <button (click)="closeModal('custom-modal-1');">Close</button>
     </div>
   </div>
   <div class="modal-background"></div>

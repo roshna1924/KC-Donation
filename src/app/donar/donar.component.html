@@ -17,7 +17,7 @@
 
     <div class="content bg-gray-lighter">
       <div class="row items-push">
-        <button class="btn success pull-left" >+Donate</button>
+        <button class="btn success pull-left" (click)="openForm()">+Donate</button>
         <h1 class="h1 font-w700 text-black animated fadeInDown fa-pull-left" style="margin-left: 35%">Donar</h1>
         <ul class="nav-header pull-right">
           <li ngbDropdown  class="nav-item dropdown">
@@ -30,21 +30,15 @@
                 <ul>
                   <li class="dropdown-header">Profile</li>
                   <li>
-                    <a tabindex="-1" href="base_pages_profile.html">
-                      <i class="si si-user pull-right"></i>
-                      <span class="badge badge-success pull-right">1</span>Profile
-                    </a>
-                  </li>
-                  <li>
-                    <a tabindex="-1" href="javascript:void(0)">
-                      <i class="si si-settings pull-right"></i>Settings
+                    <a tabindex="-1" href="../registration">
+                      Profile<i class="si si-user pull-right" style="margin-right: 22%"></i>
                     </a>
                   </li>
                   <li class="divider"></li>
                   <li class="dropdown-header">Actions</li>
                   <li>
                     <a tabindex="-1" routerLink="/mainpage" routerLinkActive="active">
-                      <i class="si si-logout pull-right"></i>Log out
+                      Log out<i class="si si-logout pull-right" style="margin-right: 22%"></i>
                     </a>
                   </li>
                 </ul>
@@ -53,7 +47,7 @@
             </div>
           </li>
         </ul>
-        <button class="btn success pull-right" >+History</button>
+        <button class="btn success pull-right" (click)="goToHistory()">+History</button>
       </div>
     </div><br>
     <div id="main" class="content content-boxed" style="background-color: lightslategrey;">
@@ -72,13 +66,13 @@
       <p class="price" id="weight" ><label for="price">Weight:</label> {{item.foodWeight}} <label>Kg</label></p>
       <p class="price" id="expdate" ><label for="price">Expiry Date:</label> {{item.foodExpiry}} </p>
       <p class="price" id="price" ><label for="price">Price: $</label> {{item.foodPrice}} </p>
-      <p style="text-align: center;"><button type="button">Delete</button></p>
+      <p style="text-align: center;"><button type="button" (click)="deleteFood(item._id)">Delete</button></p>
     </div>
   </div>
 </div>
 
 <div id="donarForm">
-  <form id="myForm" #foodData="ngForm">
+  <form id="myForm" #foodData="ngForm" (ngSubmit)="submit(foodData.value)">
     <div class="imgcontainer">
       <img src="../../assets/img/logo.jpg" alt="Avatar" class="avatar">
     </div>
@@ -93,12 +87,12 @@
       <label>Price</label>&nbsp;<input type="text" style="width: 20%" name="foodprice" [(ngModel)]="foodPrice">
       <input type="text" style="width: 20%; visibility: hidden" name="username" [(ngModel)]="username">
       <input type="date" style="width: 20%; visibility: hidden" name="addeddate" [(ngModel)]="addeddate">
-<!--      <input type="text" style="width: 20%;" name="referenceID" [(ngModel)]="referenceID">-->
+      <input type="text" style="width: 20%; visibility: hidden" name="referenceID" [(ngModel)]="referenceID">
     </div>
 
     <div class="container" style="background-color:lightgrey">
       <button  class="cancelbtn"  id= submit style="margin-left:5%">Submit</button>
-      <button  class="cancelbtn" style="margin-left:50%;" type="button" >Cancle</button>
+      <button  class="cancelbtn" style="margin-left:50%;" type="button" (click)="closeForm()">Cancle</button>
     </div>
   </form>
 </div>

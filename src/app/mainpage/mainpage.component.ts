@@ -11,4 +11,9 @@ export class MainpageComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  scroll(id) {
+      const el = document.getElementById(id);
+      el.scrollIntoView({behavior: 'smooth'});
+  }
 }
