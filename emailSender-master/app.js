@@ -92,15 +92,6 @@ app.patch("/upDateHistory", (req, res) => {
   })
 })
 
-app.post("/sendmail", (req, res) => {
-  // console.log("request came");
-  let user = req.body;
-  sendMail(user, info => {
-    console.log(`The mail has beed send 😃 and the id is ${info.messageId}`);
-    res.send(info);
-  });
-});
-
 app.post('/registration', (req, res) => {
     // console.log(req.body);
     const userType = req.body.userType;
@@ -214,51 +205,5 @@ app.post('/loginpage', async (req, res) => {
   }
 });
 
-app.post('/questName', (req, res) => {
-  // console.log("req: " + req);
-  console.log("req Body: " + req.body);
-  const questName = req.body.questName;
-  console.log('question is: ' + questName);
-  const quest = new Quest();
-  quest.questName = questName;
-
-  quest.save((err, result) => {
-    if (err) {
-      console.log("There is a error while adding in db");
-      res.send({success: false, message: "Failed to add question"});
-    } else {
-      console.log("successfuly saved");
-      res.send({success: true, message: "Successfuly added new question"});
-    }
-  })
-
-});
-
-async function sendMail(user, callback) {
-  // create reusable transporter object using the default SMTP transport
-  console.log("request came in sendMail 1");
-  let transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com",
-    port: 587,
-    secure: false, // true for 465, false for other ports
-    auth: {
-      user: details.email,
-      pass: details.password
-    }
-  });
-
-  let mailOptions = {
-    from: '"Roshna"<example.gimail.com>', // sender address
-    to: user.email, // list of receivers
-    subject: "Wellcome to AI Chatbot", // Subject line
-    html: `<h1>Hi ${user.email}</h1><br>
-    <h4>Thank you for joining us</h4>`
-  };
-
-  // send mail with defined transport object
-  let info = await transporter.sendMail(mailOptions);
-
-  callback(info);
-}
 
 // main().catch(console.error);
