@@ -43,7 +43,7 @@ export class DonarComponent implements OnInit {
   openDialog(): void {
 
     const dialogRef = this.dialog.open(DialogComponent, {
-      width : '800px',
+      width : '600px',
       data : {username: this.username},
     });
 
