@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
 import {HttpService} from '../http.service';
-import {ModalService} from '../modal.service';
+// import {ModalService} from '../modal.service';
 
 @Component({
   selector: 'app-orgadmin',
@@ -25,7 +25,7 @@ export class RequesterComponent implements OnInit {
   public bodyText;
   // @ViewChild('Weight') Weight: ElementRef;
   // tslint:disable-next-line:max-line-length
-  constructor(private  route: ActivatedRoute, private router: Router, private httpService: HttpService, private modalService: ModalService) {
+  constructor(private  route: ActivatedRoute, private router: Router, private httpService: HttpService) {
     this.router.events.subscribe((event) => { if ( event instanceof NavigationEnd) {
       this.arr = event.url.split('/', 3);
       this.previousState = this.arr[1];
@@ -50,13 +50,13 @@ export class RequesterComponent implements OnInit {
       this.temp = data;
     });
   }
-  openModal(id: string) {
-    // alert('hii');
-    this.modalService.open(id);
-  }
-  closeModal(id: string) {
-    this.modalService.close(id);
-  }
+  // openModal(id: string) {
+  //   // alert('hii');
+  //   this.modalService.open(id);
+  // }
+  // closeModal(id: string) {
+  //   this.modalService.close(id);
+  // }
   deleteItem(itemId, itemWeight, username, updateddate) {
     // alert('Item wt: ' + itemWeight + ' Reqested wt: ' + this.reqweight);
     if (confirm('Are you sure to delete ')) {

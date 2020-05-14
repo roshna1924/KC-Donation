@@ -13,7 +13,7 @@ import {HttpService} from './http.service';
 import { HttpClientModule } from '@angular/common/http';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { HistoryComponent } from './history/history.component';
-import { ModalService } from './modal.service';
+// import { ModalService } from './modal.service';
 import { ProfileComponent } from './profile/profile.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material';
@@ -45,7 +45,7 @@ import { DialogComponent } from './dialog/dialog.component';
   //   MatDialogModule
   // ],
 
-  providers: [HttpService, ModalService],
+  providers: [HttpService],
   bootstrap: [AppComponent],
   entryComponents: [DialogComponent]
 })
