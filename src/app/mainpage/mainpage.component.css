@@ -18,6 +18,10 @@
   transition: .5s;
 }
 
+#MainDiv {
+  background-image: url("../../assets/img/4303020/10.png");
+  background-repeat: no-repeat;
+}
 .navbar ul li {
   list-style-type: none;
   display: inline-block;

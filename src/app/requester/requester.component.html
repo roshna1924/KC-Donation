@@ -14,15 +14,15 @@
 
 </head>
 <body>
-<div id="page-container" >
+<div>
   <!-- Header -->
-  <header id="header-navbar" class="content-mini content-mini-full">
+  <div  class="row items-push">
     <!-- Header Navigation Right -->
-    <button class="btn success" (click)="goToHistory()" style="background-color: lightsteelblue">+History</button>
-    <ul class="nav-header pull-right">
+    <button class="btn success" (click)="goToHistory()" style="background-color: slategrey; margin-top: 2%; margin-left: 2%;"><b>+History</b></button>
+    <ul class="nav-header pull-right" style="margin-top: 2%; margin-right: 2%;">
       <li ngbDropdown  class="nav-item dropdown">
         <div class="btn-group">
-          <button type="button" ngbDropdownToggle class="btn btn-default btn-image dropdown-toggle" id="navbarDropdownButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <button type="button" ngbDropdownToggle class="btn btn-default btn-image dropdown-toggle" id="navbarDropdownButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="border-color: black;">
             <img src="../../assets/img/avatars/avatar10.jpg" alt="Avatar">
             <span class="caret"></span>
           </button>
@@ -30,57 +30,50 @@
             <ul>
               <li class="dropdown-header">Profile</li>
               <li>
-                <a tabindex="-1" href="base_pages_profile.html">
-                  <i class="si si-user pull-right" style="background-color: lightsteelblue"></i>
-                  <span class="badge badge-success pull-right">1</span>Profile
+                <a tabindex="-1" href="../profile">
+                  Profile<i class="si si-user pull-right" style="margin-right: 22%"></i>
                 </a>
               </li>
-<!--              <li>-->
-<!--                <a tabindex="-1" href="javascript:void(0)">-->
-<!--                  <i class="si si-settings pull-right"></i>Settings-->
-<!--                </a>-->
-<!--              </li>-->
               <li class="divider"></li>
               <li class="dropdown-header">Actions</li>
               <li>
                 <a tabindex="-1" routerLink="/mainpage" routerLinkActive="active">
-                  <i class="si si-logout pull-right"></i>Log out
+                  Log out<i class="si si-logout pull-right" style="margin-right: 22%"></i>
                 </a>
               </li>
             </ul>
           </div>
-
         </div>
       </li>
     </ul>
-    <h1 class="h1 font-w700 text-black animated fadeInDown pull-right" style="margin-right: 38%">Requester</h1>
+    <i class="fa fa-search pull-right" style="font-size:30px; margin-top: 2%;"></i>
+    <select id="itemCategory" class="pull-right" name="itemCategory" [(ngModel)]="itemCategory" (ngModelChange)="showCategoryCards()" style="height: 30px; margin-top: 2%; ">
+      <option value="All">All</option>
+      <option value="Cloths">Cloths</option>
+      <option value="Food">Food</option>
+      <option value="Furniture">Furniture</option>
+      <option value="Vehicle">Vehicle</option>
+      <option value="Medicine">Medicine</option>
+      <option value="Other">Other</option>
+    </select>
+    <p class="pull-right" style="color: black; margin-top: 2%; margin-right: 10px;">Search</p>
+    <h1 class="h1 font-w700 text-black animated fadeInDown pull-right" style="margin-right: 30%; margin-top: 2%; font-size: 50px;">Requester</h1>
     <!-- END Header Navigation Right -->
-  </header>
+  </div>
   <!-- END Header -->
-  <!-- Main Container -->
-  <main id="main-container">
-    <br>
-    <div id="main" class="content content-boxed" style="background-color: lightslategrey;">
-      <img src="../../assets/img/Donate.jpg" height="250" width="1200" style="margin-left: 1%; margin-bottom: 1%;" />
-    </div>
-  </main>
 </div>
 
 <div class="card">
   <!--  <img src="jeans3.jpg" alt="Denim Jeans" style="width:100%">-->
   <div id="row">
-    <div *ngFor="let item of temp" id="col" class="col-sm-3">
-      <h1 id="title" style="text-align: center;"> {{item.foodName}} </h1>
-      <p id="address"><label for="Address">Address:</label> {{item.foodAddress }} </p>
-      <p class="price" id="Weight" ><label for="price">Weight:</label> {{item.foodWeight}} <label>Kg</label></p>
+    <div *ngFor="let item of temp" id="col" class="col-sm-3"  style="background-color: whitesmoke;">
+      <h1 id="title" style="text-align: center;"> {{item.itemName}} </h1><br>
+      <p id="address"><label for="Address">Address:</label> {{item.itemAddress }} </p>
+      <p class="price" id="Weight" ><label for="price">Weight:</label> {{item.itemWeight}}<input type="text" style="width: 20%; visibility: hidden" name="username" [(ngModel)]="username"><input type="date" style="width: 20%; visibility: hidden" name="addeddate" [(ngModel)]="updateddate"></p>
 <!--      <input type="text" style="width: 20%;" name="reqweight" id="reqweight" [(ngModel)]="reqweight">-->
-      <p class="price" id="expdate" ><label for="price">Expiry Date:</label> {{item.foodExpiry}} </p>
-      <p class="price" id="price" ><label for="price">Price: $</label> {{item.foodPrice}} </p>
-      <input type="text" style="width: 20%; visibility: hidden" name="username" [(ngModel)]="username">
-      <input type="date" style="width: 20%; visibility: hidden" name="addeddate" [(ngModel)]="updateddate">
-<!--      <button class="btn btn-primary btn-sm" data-target="#loginModal" data-toggle="modal">Login</button>-->
-<!--      <button (click)="openModal('custom-modal-1')">Open Modal 1</button>-->
-      <p style="text-align: center;"><button type="button" (click)="deleteFood(item._id, item.foodWeight, username, updateddate)">Request Item</button></p>
+      <p class="price" id="expdate" ><label for="price">Expiry Date:</label> {{item.itemExpiry}} </p>
+      <p class="price" id="price" ><label for="price">Price: $</label> {{item.itemPrice}} </p>
+      <p style="text-align: center;"><button type="button" style="background-color: slategrey; color: black; width: 35%;" (click)="deleteItem(item._id, item.itemWeight, username, updateddate)">Request Item</button></p>
     </div>
   </div>
 </div>
@@ -97,19 +90,6 @@
     </div>
   </div>
 </div>
-
-<app-modal id="custom-modal-1">
-  <div class="modal">
-    <div class="modal-body">
-      <h1>A Custom Modal!</h1>
-      <p>
-        Home page text: <input type="text" [(ngModel)]="bodyText" />
-      </p>
-      <button (click)="closeModal('custom-modal-1');">Close</button>
-    </div>
-  </div>
-  <div class="modal-background"></div>
-</app-modal>
 
 <script src="requester.component.ts"></script>
 

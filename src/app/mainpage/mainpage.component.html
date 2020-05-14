@@ -3,13 +3,12 @@
 <!--[if gt IE 9]><!--> <html class="no-focus" lang="en"> <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <title>Feed KC</title>
+  <title>Donation KC</title>
 </head>
 <body>
 <div class="header" id="Header">
-  <div class="navbar">
+  <div class="navbar navbar-light bg-light">
     <ul>
       <li><a (click)="scroll('Header')">Home</a></li>
       <li><a (click)="scroll('Gallary')">Gallary</a></li>
@@ -21,31 +20,32 @@
     </ul>
   </div>
 </div>
-<div class="home" id="Home" style="width: 99%; height:500px; background-color: #0a535e; margin-left: 5px;">
-  <div class="row">
-    <div class="col-sm-4" id="image1">
-      <img src="../../assets/img/donatefood.gif" alt="mainimage" style="width: 100%; margin: 15%">
-<!--      <img src="https://www.ifhomeless.org/wp-content/uploads/2019/01/Thanksgiving-kit-550.jpg" alt="mainimage" style="width: 100%; margin: 15%">-->
-    </div>
-    <div class="col-sm-1"></div>
-    <div class="col-sm-5" style="padding-top: 2%; color: white; text-align: center">
-      <h1 style="text-align: center">KC Donation</h1><br><br>
-      <div>
-        <strong><p>"Your Donation matters.<br>
-          God has given us two hands one for helping ourselves and other is to help others.<br>
-          Remember that the happiest people are not those getting more, but those giving more.<br>
-          Giving is not just about donation, it's about making a difference. So, let's together strive for this change by donating." <br></p></strong><br></div>
-      <br>
-      <div>
-        <strong>
-          <p>The donation of commercially canned, boxed, and otherwise packaged foods is encouraged.<br>
-            Foods prepared, cooked, cooled, or reheated at home (except for baked goods) are not accepted.<br></p></strong>
-      </div>
-    </div>
-  </div>
+<div class="home" id="Home" style="width: 100%; height:500px; background-color: #0a535e; margin-left: 5px;">
+  <div id="MainDiv" style="height: 100%; margin-left: 16%; margin-top: 10px;"></div>
+<!--  <div class="row">-->
+<!--    <div class="col-sm-4" id="image1">-->
+<!--      <img src="../../assets/img/donatefood.gif" alt="mainimage" style="width: 100%; margin: 15%">-->
+<!--&lt;!&ndash;      <img src="https://www.ifhomeless.org/wp-content/uploads/2019/01/Thanksgiving-kit-550.jpg" alt="mainimage" style="width: 100%; margin: 15%">&ndash;&gt;-->
+<!--    </div>-->
+<!--    <div class="col-sm-1"></div>-->
+<!--    <div class="col-sm-5" style="padding-top: 2%; color: white; text-align: center">-->
+<!--      <h1 style="text-align: center">KC Donation</h1><br><br>-->
+<!--      <div>-->
+<!--        <strong><p>"Your Donation matters.<br>-->
+<!--          God has given us two hands one for helping ourselves and other is to help others.<br>-->
+<!--          Remember that the happiest people are not those getting more, but those giving more.<br>-->
+<!--          Giving is not just about donation, it's about making a difference. So, let's together strive for this change by donating." <br></p></strong><br></div>-->
+<!--      <br>-->
+<!--      <div>-->
+<!--        <strong>-->
+<!--          <p>The donation of commercially canned, boxed, and otherwise packaged foods is encouraged.<br>-->
+<!--            Foods prepared, cooked, cooled, or reheated at home (except for baked goods) are not accepted.<br></p></strong>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
 </div>
-<br><br><br><br><br>
-<div class="gallary" id="Gallary" style="width: 99%; height:500px; background-color: #0a535e; margin-left: 5px;">
+<br><br><br><br><br><br>
+<div class="gallary" id="Gallary" style="width: 100%; height:500px; background-color: #0a535e; margin-left: 5px;">
   <h1 style="color: white; margin-left: 25%; margin-top: 2%;"><strong>People will appreciate your donation...!!!</strong></h1>
   <ul class="row">
       <li><img src="../../assets/img/donate1.jpg" alt="donate1" height="250" width="350"></li>
@@ -58,16 +58,34 @@
       <li><img src="../../assets/img/donate3.jpg" alt="donate3" height="250" width="350"></li>
   </ul>
 </div>
-<br><br><br><br><br>
-<div class="contactUs" id="ContactUS" style="width: 99%; height:500px; background-color: #0a535e; margin-left: 5px;">
+<br><br><br><br><br><br>
+<div class="contactUs" id="ContactUS" style="width: 100%; height:500px; background-color: #0a535e; margin-left: 5px;">
   <div class="row">
+<!--    <div class="col-sm-4" id="image3">-->
+<!--      <img src="../../assets/img/donatefood.gif" alt="mainimage" style="width: 100%; margin: 15%">-->
+<!--      &lt;!&ndash;      <img src="https://www.ifhomeless.org/wp-content/uploads/2019/01/Thanksgiving-kit-550.jpg" alt="mainimage" style="width: 100%; margin: 15%">&ndash;&gt;-->
+<!--    </div>-->
+<!--    <div class="col-sm-1"></div>-->
+<!--    <div class="col-sm-5" style="padding-top: 2%; color: white; text-align: center">-->
+<!--      <h1 style="text-align: center">Contact US</h1><br><br>-->
+<!--      <div>-->
+<!--        <strong><p>KC Donation<br><br>-->
+<!--          Address : 525 East Armour Blvd.,<br>-->
+<!--          Apt 112, The Newbern,<br>-->
+<!--          Kansas City, Missouri.<br>-->
+<!--          Pincode: 64109-->
+<!--        </p></strong><br><br>-->
+<!--        <strong><p>-->
+<!--          Email : rmtcxk@kcdonation.com<br>-->
+<!--          Contact No. +1 (832) 235-7930<br>-->
+<!--        </p></strong>-->
+<!--      </div>-->
+<!--    </div>-->
     <div class="col-sm-4" id="image3">
-      <img src="../../assets/img/donatefood.gif" alt="mainimage" style="width: 100%; margin: 15%">
-      <!--      <img src="https://www.ifhomeless.org/wp-content/uploads/2019/01/Thanksgiving-kit-550.jpg" alt="mainimage" style="width: 100%; margin: 15%">-->
+      <img src="../../assets/img/4303020/6.jpg" alt="mainimage" style="width: 110%; margin-left: 5%; height: 400px; margin-top: 8%">
     </div>
-    <div class="col-sm-1"></div>
-    <div class="col-sm-5" style="padding-top: 2%; color: white; text-align: center">
-      <h1 style="text-align: center">Contact US</h1><br><br>
+    <div class="col-sm-4" style="padding-top: 2%; color: white; text-align: center; margin-top: 5%">
+      <h1 style="text-align: center">Contact Us</h1><br><br>
       <div>
         <strong><p>KC Donation<br><br>
           Address : 525 East Armour Blvd.,<br>
@@ -81,30 +99,62 @@
         </p></strong>
       </div>
     </div>
-  </div>
-</div>
-<br><br><br><br><br>
-<div class="about" id="About" style="width: 99%; height:500px; background-color: #0a535e; margin-left: 5px;">
-  <div class="row">
-    <div class="col-sm-4" id="image4">
-      <img src="../../assets/img/about2.jpg" alt="mainimage" style="width: 100%; margin: 15%">
-    </div>
-    <div class="col-sm-1"></div>
-    <div class="col-sm-5" style="padding-top: 2%; color: white; text-align: center">
-      <h1 style="text-align: center">About</h1><br><br>
+    <div class="col-sm-4" style="padding-top: 2%; border-style: solid; text-align: center; margin-top: 3%">
       <div>
-        <strong><p>"Your Donation matters.<br>
-          God has given us two hands one for helping ourselves and other is to help others.<br>
-          Remember that the happiest people are not those getting more, but those giving more.<br>
-          Giving is not just about donation, it's about making a difference. So, let's together strive for this change by donating." <br></p></strong><br></div>
-      <br>
-      <div>
-        <strong>
-          <p>The donation of commercially canned, boxed, and otherwise packaged foods is encouraged.<br>
-            Foods prepared, cooked, cooled, or reheated at home (except for baked goods) are not accepted.<br></p></strong>
+        <label style="color: ghostwhite;">Name:</label>&nbsp;<input type="text" name="Enter your name" style="margin-left: 10%"><br><br>
+        <label style="color: white;">Email-ID:</label><input type="text" name="Enter your Email-ID" style="margin-left: 7%"><br><br>
+        <label style="margin-right: 6%; color: white;">Address:</label><textarea type="text" name="Enter your Address" style="margin-left: 1%; width: 37%;"></textarea><br><br>
+        <label style="color: white;">Contact No.:</label><input type="text" name="Enter your Contact No." style="margin-left: 3%"><br><br>
+        <label style="margin-right: 32%; color: white;">Suggestion/Query:</label><br><br><textarea type="text" style="margin-right: 1%; width: 60%" name="Enter your Suggestion/Query"></textarea><br><br>
+        <button class="btn btn-info" name="Submit" style="color: black; width: 25%;">Submit</button><br><br>
       </div>
     </div>
   </div>
+</div>
+<br><br><br><br><br><br>
+<div class="about" id="About" style="width: 100%; height:500px; background-color: #0a535e; margin-left: 5px;"><br>
+  <h1 style="margin-left: 47%; color: whitesmoke;"><u>About Us</u></h1><br><br><br><br>
+  <div class="row">
+    <div class="col-sm-4" id="yamini" style="text-align: center;">
+      <img src="../../assets/img/yamini.png" alt="roshna" style="width: 38%; margin-left: 10%"><br>
+      <label style="margin-left: 10%; color: whitesmoke;">Yamini</label><br>
+      <label style="margin-left: 10%; color: whitesmoke;">Software Developer</label>
+    </div>
+    <div class="col-sm-4" id="roshna" style="text-align: center;">
+      <img src="../../assets/img/roshna.png" alt="roshna" style="width: 42%; margin-left: 10%; height: 185px"><br>
+      <label style="margin-left: 10%; color: whitesmoke;">Roshna Toke</label><br>
+      <label style="margin-left: 10%; color: whitesmoke;">Software Developer</label>
+    </div>
+    <div class="col-sm-4" id="manaswini" style="text-align: center;">
+      <img src="../../assets/img/manaswini.png" alt="roshna" style="width: 38%; margin-left: 10%"><br>
+      <label style="margin-left: 10%; color: whitesmoke;">Manaswini Vedula</label><br>
+      <label style="margin-left: 10%; color: whitesmoke;">Software Developer</label>
+    </div>
+  </div>
+  <div style="margin-top: 50px; margin-left: 40%; font-size: 20px; font-family:verdana;">
+    <p style="color: whitesmoke;">“We make a living by what we get,</p>
+    <p style="color: whitesmoke">But we make a life by what we give.”</p>
+  </div>
+<!--  <div class="row">-->
+<!--    <div class="col-sm-4" id="image4">-->
+<!--      <img src="../../assets/img/about2.jpg" alt="mainimage" style="width: 100%; margin: 15%">-->
+<!--    </div>-->
+<!--    <div class="col-sm-1"></div>-->
+<!--    <div class="col-sm-5" style="padding-top: 2%; color: white; text-align: center">-->
+<!--      <h1 style="text-align: center">About</h1><br><br>-->
+<!--      <div>-->
+<!--        <strong><p>"Your Donation matters.<br>-->
+<!--          God has given us two hands one for helping ourselves and other is to help others.<br>-->
+<!--          Remember that the happiest people are not those getting more, but those giving more.<br>-->
+<!--          Giving is not just about donation, it's about making a difference. So, let's together strive for this change by donating." <br></p></strong><br></div>-->
+<!--      <br>-->
+<!--      <div>-->
+<!--        <strong>-->
+<!--          <p>The donation of commercially canned, boxed, and otherwise packaged foods is encouraged.<br>-->
+<!--            Foods prepared, cooked, cooled, or reheated at home (except for baked goods) are not accepted.<br></p></strong>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
 </div>
 <br><br><br><br><br>
 </body>

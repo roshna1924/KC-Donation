@@ -8,12 +8,14 @@ import {DonarComponent} from './donar/donar.component';
 import {RequesterComponent} from './requester/requester.component';
 import {MainpageComponent} from './mainpage/mainpage.component';
 import {HistoryComponent} from './history/history.component';
+import {ProfileComponent} from './profile/profile.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/mainpage', pathMatch: 'full'},
   {path: 'loginpage', component: LoginpageComponent},
   {path: 'registration', component: RegistrationComponent},
   {path: 'forgotpasswd', component: ForgotpasswdComponent},
+  {path: 'profile', component: ProfileComponent},
   {path: 'donar/:username', component: DonarComponent},
   {path: 'requester/:username', component: RequesterComponent},
   {path: 'history/:username/:previousState', component: HistoryComponent},

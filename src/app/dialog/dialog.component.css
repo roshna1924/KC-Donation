@@ -1,34 +1,10 @@
-.btn {
-  /*border: 2px solid black;*/
-  background-color: slategrey;
-  color: black;
-  padding: 14px 28px;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-
-/* Green */
-.success {
-  border-color: black;
-  border-width: 1px;
-}
-
-.success:hover {
-  background-color: #4CAF50;
-  color: white;
-}
-
 #donarForm {
-    line-height: 80%;
+  line-height: 80%;
 }
 /* Bordered form */
 form {
   border: 3px solid #f1f1f1;
   visibility: visible;
-  margin-left: 30%;
-  margin-right: 30%;
   line-height: 70%;
 }
 
@@ -46,7 +22,7 @@ input[type=text] {
 #button {
   background-color: #4CAF50;
   color: white;
-  padding: 14px 14px;
+  padding: 14px 20px;
   margin: 8px 0;
   border: none;
   cursor: pointer;
@@ -80,34 +56,5 @@ img.avatar {
 /* Add padding to containers */
 .container {
   padding: 10px;
-  width: 100%;
 }
-body {
-  /*background-image: url("../../assets/img/4303020/7.jpg");*/
-  background-color: #87adbd;
-}
-
-/* The "Forgot password" text */
-span.psw {
-  float: right;
-  padding-top: 16px;
-}
-
-/* Change styles for span and cancel button on extra small screens */
-
-
-.card {
-  margin: auto;
-  /*text-align: center;*/
-  font-family: arial;
-  background-color: whitesmoke;
-}
-
-#col {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  margin: 50px;
-  border-color: #0d707f;
-  border-width: 2px;
-}
-
 

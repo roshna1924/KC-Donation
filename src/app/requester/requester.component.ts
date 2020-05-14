@@ -9,13 +9,15 @@ import {ModalService} from '../modal.service';
   styleUrls: ['./requester.component.css'],
 })
 export class RequesterComponent implements OnInit {
-  public foodName;
-  public foodAddress;
-  public foodExpiry;
-  public foodWeight;
-  public foodPrice;
+  public itemCategory;
+  public itemName;
+  public itemAddress;
+  public itemExpiry;
+  public itemWeight;
+  public itemPrice;
   public username;
   public updateddate;
+  public searchCat;
   temp: any;
   public  previousState;
   arr: any;
@@ -31,13 +33,20 @@ export class RequesterComponent implements OnInit {
     });
   }
   ngOnInit() {
-    this.getData();
+    this.searchCat = 'All';
+    this.getData(this.searchCat);
     this.username = this.route.snapshot.paramMap.get('username');
     this.updateddate = new Date();
   }
-  getData() {
-    console.log('Get Data caalling');
-    this.httpService.getFoodData().subscribe(data => {
+  getData(searchCat) {
+    console.log('Get Data calling');
+    this.httpService.getItemData(searchCat).subscribe(data => {
+      this.temp = data;
+    });
+  }
+  showCategoryCards() {
+  // alert('val is:' + this.itemCategory);
+  this.httpService.getItemData(this.itemCategory).subscribe(data => {
       this.temp = data;
     });
   }
@@ -48,27 +57,27 @@ export class RequesterComponent implements OnInit {
   closeModal(id: string) {
     this.modalService.close(id);
   }
-  deleteFood(foodId, foodWeight, username, updateddate) {
-    // alert('Food wt: ' + foodWeight + ' Reqested wt: ' + this.reqweight);
+  deleteItem(itemId, itemWeight, username, updateddate) {
+    // alert('Item wt: ' + itemWeight + ' Reqested wt: ' + this.reqweight);
     if (confirm('Are you sure to delete ')) {
       console.log('Implement delete functionality here');
+      this.httpService.deleteItem(itemId).subscribe(data => {
+        // console.log(data.success + ' ' + data.message);
+        if (data.success) {
+          this.getData(this.searchCat);
+          alert('Item Data deleted from table successfully');
+          this.httpService.upDateHistory(itemId, username, updateddate).subscribe(data1 => {
+            if (data1) {
+              alert('Item Data updated in history table successfully');
+            } else {
+              alert('Error in updating data in history table');
+            }
+          });
+        } else {
+          alert('Error in deleting Item');
+        }
+      });
     }
-    this.httpService.deleteFood(foodId).subscribe(data => {
-      // console.log(data.success + ' ' + data.message);
-      if (data.success) {
-        this.getData();
-        alert('Food Data deleted from table successfully');
-        this.httpService.upDateHistory(foodId, username, updateddate).subscribe(data1 => {
-          if (data1) {
-            alert('Food Data updated in history table successfully');
-          } else {
-            alert('Error in updating data in history table');
-          }
-        });
-      } else {
-        alert('Error in deleting food Item');
-      }
-    });
   }
 
   goToHistory() {

@@ -14,6 +14,6 @@ export class MainpageComponent implements OnInit {
 
   scroll(id) {
       const el = document.getElementById(id);
-      el.scrollIntoView({behavior: 'smooth'});
+      el.scrollIntoView({behavior: 'smooth', block: 'center'});
   }
 }

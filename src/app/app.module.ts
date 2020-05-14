@@ -13,8 +13,11 @@ import {HttpService} from './http.service';
 import { HttpClientModule } from '@angular/common/http';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { HistoryComponent } from './history/history.component';
-import {ModalComponent} from './modal/modal.component';
 import { ModalService } from './modal.service';
+import { ProfileComponent } from './profile/profile.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material';
+import { DialogComponent } from './dialog/dialog.component';
 
 @NgModule({
   declarations: [
@@ -26,21 +29,24 @@ import { ModalService } from './modal.service';
     DonarComponent,
     RequesterComponent,
     HistoryComponent,
-    ModalComponent
+    ProfileComponent,
+    DialogComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatDialogModule
   ],
   // exports: [
   //   MatDialogModule
   // ],
 
   providers: [HttpService, ModalService],
-  bootstrap: [AppComponent]
-  // entryComponents: [ModalComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [DialogComponent]
 })
 export class AppModule { }

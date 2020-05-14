@@ -27,25 +27,37 @@ export class HttpService {
     return this.http.get(url);
   }
 
-  getFoodData() {
-    return this.http.get<MyData>('http://localhost:3000/getFoodData');
+  getItemData(searchCat) {
+    return this.http.get<MyData>('http://localhost:3000/getItemData/' + searchCat);
+  }
+  getRequestersEmail() {
+    return this.http.get<MyData>('http://localhost:3000/getRequestersEmail');
   }
   getUserHistory(username, previousState) {
     // alert('inside http' + username);
     return this.http.get<MyData>('http://localhost:3000/getUserHistory/' + username + '/' + previousState);
   }
 
-  deleteFood(foodId) {
-    // console.log('in http service deleteFood for:' + foodName);
-    return this.http.delete<SaveStatus>('http://localhost:3000/deleteFood/' + foodId);
+  deleteItem(itemId) {
+    // console.log('in http service deleteItem for:' + itemName);
+    return this.http.delete<SaveStatus>('http://localhost:3000/deleteItem/' + itemId);
   }
 
-  upDateHistory(foodId, username, updateddate) {
-    console.log('in http service update food  for:' + foodId);
-    const head = { Id: foodId, name: username, date: updateddate};
+  upDateHistory(itemId, username, updateddate) {
+    console.log('in http service update item  for:' + itemId);
+    const head = { Id: itemId, name: username, date: updateddate};
     return this.http.patch<SaveStatus>('http://localhost:3000/upDateHistory/', {headers : head});
   }
-
+  upDatePassword(email, randomNum) {
+    console.log('in http service update password  for:' + email);
+    const head = { emailID: email, randomNumber: randomNum};
+    return this.http.patch<SaveStatus>('http://localhost:3000/upDatePassword/', {headers : head});
+  }
+  profUpdate(existingEmail, currentPass, newPass) {
+    console.log('in http service for profile update');
+    const head = { exEmail: existingEmail, currPass: currentPass, nPass: newPass};
+    return this.http.patch<SaveStatus>('http://localhost:3000/profUpdate/', {headers : head});
+  }
   httpPost(url, {}) {
     return this.http.post(url, { name: 'Roshna' });
   }
@@ -60,24 +72,22 @@ export class HttpService {
     });
   }
 
-  submit(FoodData) {
+  submit(ItemData) {
     // console.log('inside httpservice');
-    return this.http.post<SaveStatus>('http://localhost:3000/submitFood', FoodData);
+    return this.http.post<SaveStatus>('http://localhost:3000/submitItem', ItemData);
   }
 
-  addHistory(FoodData, referenceID) {
-    console.log('inside httpservice :' + JSON.stringify(FoodData) + JSON.stringify(referenceID));
-    const head = { referenceId: referenceID };
+  addHistory(itemData, referenceID) {
+    console.log('inside httpservice :' + JSON.stringify(itemData) + JSON.stringify(referenceID));
+    const head = { refID: referenceID };
     console.log('inside httpservice - head :' + JSON.stringify(head));
-    return this.http.post<SaveStatus>('http://localhost:3000/addHistory', FoodData, {headers : head});
+    return this.http.post<SaveStatus>('http://localhost:3000/addHistory', itemData, {headers : head});
   }
 
   custLogin(user) {
     return this.http.post<MyData>('http://localhost:3000/loginpage', user);
   }
-
-  questSet(questName) {
-    console.log('questSet : ' + questName);
-    return this.http.post<SaveStatus>('http://localhost:3000/questName', {questName});
+  custExist(user) {
+    return this.http.post<MyData>('http://localhost:3000/custExist', user);
   }
 }

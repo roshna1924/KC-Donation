@@ -36,8 +36,4 @@ export class RegistrationComponent implements OnInit {
      } // else block
    }
 
-  /* registerUser(user) {
-    console.log(user);
-    this.httpService.registerUser(user);
-  }*/
 }

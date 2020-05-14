@@ -10,11 +10,11 @@ import {HttpService} from '../http.service';
 })
 export class HistoryComponent implements OnInit {
   temp: any;
-  public foodName;
-  public foodAddress;
-  public foodExpiry;
-  public foodWeight;
-  public foodPrice;
+  public itemName;
+  public itemAddress;
+  public itemExpiry;
+  public itemWeight;
+  public itemPrice;
   public username;
   public addeddate;
   public previousState;

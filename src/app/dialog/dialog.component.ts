@@ -1,62 +1,37 @@
-import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
+import {Component, Inject, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
 import {HttpService} from '../http.service';
-import {MatDialog} from '@angular/material';
-import {DialogComponent} from '../dialog/dialog.component';
+import {MatDialogRef, MAT_DIALOG_DATA, MatDialog} from '@angular/material';
 
 @Component({
-  selector: 'app-globadmin',
-  templateUrl: './donar.component.html',
-  styleUrls: ['./donar.component.css']
+  selector: 'app-dialog',
+  templateUrl: './dialog.component.html',
+  styleUrls: ['./dialog.component.css']
 })
-export class DonarComponent implements OnInit {
+export class DialogComponent implements OnInit {
   public itemCategory;
   public itemName;
   public itemAddress;
   public itemExpiry;
   public itemWeight;
   public itemPrice;
-  public username;
   public addeddate;
-  public  previousState;
   public referenceID;
   public requesterIds;
+  public username;
   public searchCat = 'All';
   temp: any;
   arr: any;
   loading = false;
   buttionText = 'Send';
-  constructor(private  route: ActivatedRoute, private router: Router, private httpService: HttpService, public dialog: MatDialog) {
-    this.router.events.subscribe((event) => { if ( event instanceof NavigationEnd) {
-      this.arr = event.url.split('/', 3);
-      this.previousState = this.arr[1];
-    }
-    });
+  // tslint:disable-next-line:max-line-length
+  constructor(private  route: ActivatedRoute, private router: Router, private httpService: HttpService, public dialogRef: MatDialogRef<DialogComponent>, @Inject(MAT_DIALOG_DATA) public data: any) {
   }
 
   ngOnInit() {
-    document.getElementById('myForm').style.display = 'none';
     this.getData(this.searchCat);
-    this.username = this.route.snapshot.paramMap.get('username');
     this.addeddate = new Date();
   }
-  openDialog(): void {
-
-    const dialogRef = this.dialog.open(DialogComponent, {
-      width : '800px',
-      data : {username: this.username},
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-    });
-  }
-  closeForm() {
-    document.getElementById('myForm').style.display = 'none';
-    this.searchCat = 'All';
-    this.getData(this.searchCat);
-  }
-
   getData(searchCat) {
     this.httpService.getItemData(searchCat).subscribe(data => {
       this.temp = data;
@@ -66,30 +41,10 @@ export class DonarComponent implements OnInit {
       // alert('load:' + data);
     });
   }
-
-  deleteItem(itemId) {
-    this.httpService.deleteItem(itemId).subscribe(data => {
-      // console.log(data.success + ' ' + data.message);
-      if (data.success) {
-        this.getData(this.searchCat);
-      } else {
-        alert('Error in deleting Item');
-      }
-    });
-  }
-
-  openForm() {
-    document.getElementById('myForm').style.display = 'block';
-  }
-
-  goToHistory() {
-       this.router.navigate(['/history', this.username, this.previousState]);
-  }
-
-  submit(itemData) {
+  submitToDiag(itemData) {
     // tslint:disable-next-line:max-line-length
-    console.log('getitemData:' + JSON.stringify(itemData));
-    console.log('itemWeight:' + this.itemWeight);
+    console.log('getitemData: ' + JSON.stringify(itemData));
+    console.log('itemWeight: ' + this.itemWeight);
     // tslint:disable-next-line:max-line-length
     if (this.itemName === undefined || this.itemName === '' || this.itemAddress === undefined || this.itemAddress === '' || this.itemCategory === '' || this.itemPrice === undefined || this.itemPrice === '') {
       alert('Please Enter all details');
@@ -101,7 +56,7 @@ export class DonarComponent implements OnInit {
         alert('Item Expiry should be greater than current date');
       }
     } else {
-      document.getElementById('myForm').style.display = 'none';
+      this.closeForm();
       this.httpService.submit(itemData).subscribe(data => {
         if (data.success) {
           alert('Item Data added successfully');
@@ -145,4 +100,9 @@ export class DonarComponent implements OnInit {
     }
   }
 
+  closeForm() {
+    this.dialogRef.close();
+    this.searchCat = 'All';
+    this.getData(this.searchCat);
+  }
 }

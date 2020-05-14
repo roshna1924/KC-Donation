@@ -2,33 +2,35 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-<button class="btn success pull-left" (click)="goToMainPage()"><=Back</button><br><br><br><br><br>
+<button class="btn success pull-left" (click)="goToMainPage()"><b>Back </b> <i class="fa fa-arrow-circle-left" style="font-size:20px"></i></button><br><br><br><br><br>
 
 <div id="row">
   <table>
     <tr>
-      <th>Food Donar Name</th>
-      <th>Donar Added Date</th>
-      <th>Food Item Name</th>
-      <th>Food Donar Address</th>
-      <th>Food Item Weigth</th>
-      <th>Food Item Expiry Date</th>
-      <th>Food Item Price</th>
-      <th>Requster Name</th>
+      <th>Item Category</th>
+      <th>Item Name</th>
+      <th>Item Weight/Number</th>
+      <th>Item Expiry Date</th>
+      <th>Item Price</th>
+      <th>Item Donor Name</th>
+      <th>Donor Added Date</th>
+      <th>Donor Address</th>
+      <th>Requester Name</th>
       <th>Requester Completion date</th>
-      <th>Delete History</th>
+<!--      <th>Delete History</th>-->
     </tr>
     <tr *ngFor="let item of temp">
+      <td>{{item.itemCategory}}</td>
+      <td>{{item.itemName}}</td>
+      <td>{{item.itemWeight}}</td>
+      <td>{{item.itemExpiry}}</td>
+      <td>{{item.itemPrice}}</td>
       <td>{{item.donarName}}</td>
       <td>{{item.donarAddedDate}}</td>
-      <td>{{item.foodName}}</td>
-      <td>{{item.foodAddress}}</td>
-      <td>{{item.foodWeight}}</td>
-      <td>{{item.foodExpiry}}</td>
-      <td>{{item.foodPrice}}</td>
+      <td>{{item.itemAddress}}</td>
       <td>{{item.requesterName}}</td>
       <td>{{item.requesterCompDate}}</td>
-      <td><button style="margin-left: 25%"><i class="fa fa-trash"></i></button></td>
+<!--      <td><button style="margin-left: 25%"><i class="fa fa-trash"></i></button></td>-->
     </tr>
   </table>
   <!--  </div>-->
