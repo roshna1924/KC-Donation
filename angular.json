@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "AngMongNodeProject": {
+    "kcdonation": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/AngMongNodeProject",
+            "outputPath": "dist/kcdonation",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -47,13 +47,13 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "2mb",
+                  "maximumWarning": "4mb",
                   "maximumError": "5mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "6kb",
-                  "maximumError": "10kb"
+                  "maximumWarning": "200kb",
+                  "maximumError": "400kb"
                 }
               ]
             }
@@ -62,18 +62,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "AngMongNodeProject:build"
+            "browserTarget": "kcdonation:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "AngMongNodeProject:build:production"
+              "browserTarget": "kcdonation:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "AngMongNodeProject:build"
+            "browserTarget": "kcdonation:build"
           }
         },
         "test": {
@@ -110,15 +110,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "AngMongNodeProject:serve"
+            "devServerTarget": "kcdonation:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "AngMongNodeProject:serve:production"
+              "devServerTarget": "kcdonation:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "AngMongNodeProject"
+  "defaultProject": "kcdonation"
 }
