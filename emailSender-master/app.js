@@ -84,7 +84,7 @@ app.delete("/deleteItem/:id", (req, res) => {
 })
 
 app.get("/getItemData/:searchCat/:username", (req, res) => {
-  console.log("searchCat :" + req.params.searchCat);
+  console.log("searchCat :" + req.params.searchCat + "userName:"+req.params.username);
   if(req.params.username !== '')
     User.find({registerUsername: req.params.username})
       .exec(function (err, itemdatas) {
