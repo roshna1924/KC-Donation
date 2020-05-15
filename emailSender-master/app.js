@@ -84,9 +84,9 @@ app.delete("/deleteItem/:id", (req, res) => {
 })
 
 app.get("/getItemData/:searchCat/:username", (req, res) => {
-  console.log("searchCat :" + req.params.searchCat + "userName:"+req.params.username);
-  if(req.params.username !== '')
-    User.find({registerUsername: req.params.username})
+  console.log("searchCat :" + req.params.searchCat + " userName:"+req.params.username);
+  if(req.params.username !== 'All')
+    ItemData.find({username: req.params.username})
       .exec(function (err, itemdatas) {
         if(err) {
           console.log("Error in receiving Items");
@@ -94,7 +94,7 @@ app.get("/getItemData/:searchCat/:username", (req, res) => {
           res.json(itemdatas);
         }
       })
-  else if(req.params.searchCat === 'All')
+  else if(req.params.username === 'All' && req.params.searchCat === 'All')
     ItemData.find({})
       .exec(function (err, itemdatas) {
         if(err) {
@@ -104,7 +104,7 @@ app.get("/getItemData/:searchCat/:username", (req, res) => {
         }
       })
   else
-    ItemData.find({itemCategory: req.params.searchCat}, {registerUsername: req.params.username})
+    ItemData.find({itemCategory: req.params.searchCat})
       .exec(function (err, itemdatas) {
         if(err) {
           console.log("Error in receiving Items");
@@ -200,6 +200,7 @@ app.post('/submitItem', (req, res) => {
   const itemExpiry = req.body.itemExpdate;
   const itemWeight = req.body.itemWeight;
   const itemPrice = req.body.itemPrice;
+  const userName = req.body.username;
 
   const itemData = new ItemData();
   itemData.itemCategory = itemCategory;
@@ -208,6 +209,7 @@ app.post('/submitItem', (req, res) => {
   itemData.itemExpiry = itemExpiry;
   itemData.itemWeight = itemWeight;
   itemData.itemPrice = itemPrice;
+  itemData.username = userName;
 
   itemData.save((err, result) => {
     if(err) {

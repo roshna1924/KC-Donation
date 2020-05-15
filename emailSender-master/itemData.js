@@ -7,7 +7,8 @@ var itemSchema = mongoose.Schema({
   itemAddress: {type:String, required: true},
   itemExpiry: {type:Date , required: false},
   itemWeight: {type:Number, required: false},
-  itemPrice: {type:Float, required: true}
+  itemPrice: {type:Float, required: true},
+  username : {type:String, required: false}
 });
 
 var itemData = module.exports = mongoose.model('itemData', itemSchema);

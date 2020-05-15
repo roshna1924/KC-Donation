@@ -64,7 +64,7 @@ export class DialogComponent implements OnInit {
           this.getData(this.searchCat);
           this.httpService.addHistory(itemData, data.referenceID).subscribe(data1 => {
             if (data1.success) {
-              alert('Item Data added in history table successfully');
+              // alert('Item Data added in history table successfully');
               // 04/23 - start
               this.loading = true;
               this.buttionText = 'Sending...';
