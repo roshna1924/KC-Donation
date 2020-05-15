@@ -58,7 +58,7 @@ export class DonarComponent implements OnInit {
   }
 
   getData(searchCat) {
-    this.httpService.getItemData(searchCat).subscribe(data => {
+    this.httpService.getItemData(searchCat, this.username).subscribe(data => {
       this.temp = data;
     });
     this.httpService.getRequestersEmail().subscribe(data => {

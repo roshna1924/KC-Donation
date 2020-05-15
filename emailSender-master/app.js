@@ -83,9 +83,18 @@ app.delete("/deleteItem/:id", (req, res) => {
   })
 })
 
-app.get("/getItemData/:searchCat", (req, res) => {
+app.get("/getItemData/:searchCat/:username", (req, res) => {
   console.log("searchCat :" + req.params.searchCat);
-  if(req.params.searchCat === 'All')
+  if(req.params.username !== '')
+    ItemData.find({registerUsername: req.params.username})
+      .exec(function (err, itemdatas) {
+        if(err) {
+          console.log("Error in receiving Items");
+        } else {
+          res.json(itemdatas);
+        }
+      })
+  else if(req.params.searchCat === 'All')
     ItemData.find({})
       .exec(function (err, itemdatas) {
         if(err) {
@@ -95,7 +104,7 @@ app.get("/getItemData/:searchCat", (req, res) => {
         }
       })
   else
-    ItemData.find({itemCategory: req.params.searchCat})
+    ItemData.find({itemCategory: req.params.searchCat}, {registerUsername: req.params.username})
       .exec(function (err, itemdatas) {
         if(err) {
           console.log("Error in receiving Items");

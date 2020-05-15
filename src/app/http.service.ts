@@ -27,8 +27,8 @@ export class HttpService {
     return this.http.get(url);
   }
 
-  getItemData(searchCat) {
-    return this.http.get<MyData>('http://localhost:3000/getItemData/' + searchCat);
+  getItemData(searchCat, username) {
+    return this.http.get<MyData>('http://localhost:3000/getItemData/' + searchCat + '/' + username);
   }
   getRequestersEmail() {
     return this.http.get<MyData>('http://localhost:3000/getRequestersEmail');

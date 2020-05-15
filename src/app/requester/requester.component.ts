@@ -40,13 +40,13 @@ export class RequesterComponent implements OnInit {
   }
   getData(searchCat) {
     console.log('Get Data calling');
-    this.httpService.getItemData(searchCat).subscribe(data => {
+    this.httpService.getItemData(searchCat, '').subscribe(data => {
       this.temp = data;
     });
   }
   showCategoryCards() {
   // alert('val is:' + this.itemCategory);
-  this.httpService.getItemData(this.itemCategory).subscribe(data => {
+  this.httpService.getItemData(this.itemCategory, '').subscribe(data => {
       this.temp = data;
     });
   }
