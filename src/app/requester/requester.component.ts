@@ -23,8 +23,6 @@ export class RequesterComponent implements OnInit {
   arr: any;
   public reqweight;
   public bodyText;
-  // @ViewChild('Weight') Weight: ElementRef;
-  // tslint:disable-next-line:max-line-length
   constructor(private  route: ActivatedRoute, private router: Router, private httpService: HttpService) {
     this.router.events.subscribe((event) => { if ( event instanceof NavigationEnd) {
       this.arr = event.url.split('/', 3);
@@ -50,27 +48,20 @@ export class RequesterComponent implements OnInit {
       this.temp = data;
     });
   }
-  // openModal(id: string) {
-  //   // alert('hii');
-  //   this.modalService.open(id);
-  // }
-  // closeModal(id: string) {
-  //   this.modalService.close(id);
-  // }
   deleteItem(itemId, itemWeight, username, updateddate) {
     // alert('Item wt: ' + itemWeight + ' Reqested wt: ' + this.reqweight);
-    if (confirm('Are you sure to delete ')) {
+    if (confirm('Are you sure to request that item?')) {
       console.log('Implement delete functionality here');
       this.httpService.deleteItem(itemId).subscribe(data => {
         // console.log(data.success + ' ' + data.message);
         if (data.success) {
           this.getData(this.searchCat);
-          alert('Item Data deleted from table successfully');
+          alert('Item requested successfully');
           this.httpService.upDateHistory(itemId, username, updateddate).subscribe(data1 => {
             if (data1) {
-              alert('Item Data updated in history table successfully');
+              // alert('Item Data updated in history table successfully');
             } else {
-              alert('Error in updating data in history table');
+              // alert('Error in updating data in history table');
             }
           });
         } else {
