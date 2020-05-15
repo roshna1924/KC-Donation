@@ -29,9 +29,9 @@ export class DialogComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.username = this.route.snapshot.paramMap.get('username');
     this.getData(this.searchCat);
     this.addeddate = new Date();
-    this.username = this.route.snapshot.paramMap.get('username');
   }
   getData(searchCat) {
     this.httpService.getItemData(searchCat, this.username).subscribe(data => {

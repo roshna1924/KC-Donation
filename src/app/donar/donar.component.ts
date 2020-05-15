@@ -36,8 +36,8 @@ export class DonarComponent implements OnInit {
 
   ngOnInit() {
     document.getElementById('myForm').style.display = 'none';
-    this.getData(this.searchCat);
     this.username = this.route.snapshot.paramMap.get('username');
+    this.getData(this.searchCat);
     this.addeddate = new Date();
   }
   openDialog(): void {
