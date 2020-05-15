@@ -86,7 +86,7 @@ app.delete("/deleteItem/:id", (req, res) => {
 app.get("/getItemData/:searchCat/:username", (req, res) => {
   console.log("searchCat :" + req.params.searchCat);
   if(req.params.username !== '')
-    ItemData.find({registerUsername: req.params.username})
+    User.find({registerUsername: req.params.username})
       .exec(function (err, itemdatas) {
         if(err) {
           console.log("Error in receiving Items");
