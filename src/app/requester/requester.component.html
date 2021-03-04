@@ -69,7 +69,7 @@
     <div *ngFor="let item of temp" id="col" class="col-sm-3"  style="background-color: whitesmoke;">
       <h1 id="title" style="text-align: center;"> {{item.itemName}} </h1><br>
       <p id="address"><label for="Address">Address:</label> {{item.itemAddress }} </p>
-      <p class="price" id="Weight" ><label for="price">Weight:</label> {{item.itemWeight}}<input type="text" style="width: 20%; visibility: hidden" name="username" [(ngModel)]="username"><input type="date" style="width: 20%; visibility: hidden" name="addeddate" [(ngModel)]="updateddate"></p>
+      <p class="price" id="Weight" ><label for="price">Weight/Quantity:</label> {{item.itemWeight}}<input type="text" style="width: 20%; visibility: hidden" name="username" [(ngModel)]="username"><input type="date" style="width: 20%; visibility: hidden" name="addeddate" [(ngModel)]="updateddate"></p>
 <!--      <input type="text" style="width: 20%;" name="reqweight" id="reqweight" [(ngModel)]="reqweight">-->
       <p class="price" id="expdate" ><label for="price">Expiry Date:</label> {{item.itemExpiry}} </p>
       <p class="price" id="price" ><label for="price">Price: $</label> {{item.itemPrice}} </p>

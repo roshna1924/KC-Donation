@@ -56,7 +56,7 @@
     <div *ngFor="let item of temp" id="col" class="col-sm-3" style="background-color: whitesmoke;">
       <h1 id="title" style="text-align: center;"> {{item.itemName}} </h1><br>
       <p id="address"><label for="Address">Address:</label> {{item.itemAddress }} </p>
-      <p class="price" id="weight" ><label for="price">Weight:</label> {{item.itemWeight}}</p>
+      <p class="price" id="weight" ><label for="price">Weight/Quanity:</label> {{item.itemWeight}}</p>
       <p class="price" id="expdate" ><label for="price">Expiry Date:</label> {{item.itemExpiry}} </p>
       <p class="price" id="price" ><label for="price">Price: $</label> {{item.itemPrice}} <input type="text" style="visibility: hidden" name="username" [(ngModel)]="username"></p>
       <p style="text-align: center;"><button type="button" style="background-color: slategrey; color: black; width: 20%" (click)="deleteItem(item._id)">Delete</button></p>
